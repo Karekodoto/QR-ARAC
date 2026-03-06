@@ -2,8 +2,11 @@
 
 Aşağıdaki bağlantılara tıklayarak araç panellerine doğrudan ulaşabilirsiniz:
 
-* [34 SR 2547 Paneli Git](https://karekodoto.github.io/QR-ARAC/34SR2547.html)
-* [34 FGP 176 Paneli Git](https://karekodoto.github.io/QR-ARAC/34FGP176.html)
+| PLAKA | BAĞLANTI LİNKİ |
+| :--- | :--- |
+| **34 SR 2547** | [Panele Git](https://karekodoto.github.io/QR-ARAC/34SR2547.html) |
+| **34 FGP 176** | [Panele Git](https://karekodoto.github.io/QR-ARAC/34FGP176.html) |
+| **34 KUF 331** | [Panele Git](https://karekodoto.github.io/QR-ARAC/34-KUF-331.html) |
 
 ---
-*Not: Yeni plaka eklediğinizde bu listeye de ekleme yapabilirsiniz.*
+*Not: Yeni bir plaka eklediğinizde bu listeye yeni bir satır eklemeyi unutmayın.*
