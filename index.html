@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birkan Dayıoğlu | Elite VIP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern ve Enerjik Arka Plan */
+        body { 
+            margin:0; 
+            min-height:100vh; 
+            display:flex; 
+            justify-content:center; 
+            align-items:center; 
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            overflow: hidden;
+        }
+
+        /* Arka plan renk dalgalanması */
+        .bg-glow {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(from 0deg, #001a33, #0044cc, #d4af37, #1a0033, #001a33);
+            animation: rotate 12s linear infinite;
+            opacity: 0.4;
+            filter: blur(80px);
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Gelişmiş Kart Tasarımı */
+        .card { 
+            width: 90%; 
+            max-width: 380px; 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-radius: 30px; 
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            /* Altın Neon Çerçeve */
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.05);
+            box-sizing: border-box;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            border-color: #d4af37;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Logo Ayarı */
+        .logo-box {
+            width: 100%;
+            height: 45px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-box img {
+            max-height: 100%;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+        }
+
+        /* Plaka Tasarımı - Geliştirilmiş */
+        .plate { 
+            display: inline-flex; 
+            border: 2px solid #222; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            margin-bottom: 25px; 
+            background: #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+        }
+        .plate-tr { 
+            background: #003399; 
+            color: white; 
+            width: 28px; 
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: center; 
+            font-size: 11px; 
+            font-weight: bold; 
+            padding-bottom: 6px; 
+        }
+        .plate-no { 
+            color: #000; 
+            font-size: 26px; 
+            font-weight: 900; 
+            padding: 5px 15px; 
+            letter-spacing: 2px;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        h1 { 
+            color: #fff; 
+            font-size: 1.8rem; 
+            margin: 5px 0; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            background: linear-gradient(to bottom, #fff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blood { 
+            color: #ff4757; 
+            font-weight: bold; 
+            display: block; 
+            margin-bottom: 30px; 
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+        }
+
+        /* Gelişmiş Butonlar */
+        .btn { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 18px; 
+            margin: 15px 0; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Buton parlama efekti */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        .btn:hover::after { left: 120%; }
+
+        .btn-call { 
+            background: linear-gradient(135deg, #11998e, #38ef7d); 
+            box-shadow: 0 10px 20px rgba(17, 153, 142, 0.3);
+        }
+        
+        .btn-insta { 
+            background: linear-gradient(45deg, #f09433, #e1306c, #833ab4);
+            box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .btn i { margin-right: 12px; font-size: 1.2rem; }
+        .btn:active { transform: scale(0.92); }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div class="card">
+        <div class="logo-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Hyundai_Motor_Company_logo.svg" alt="Hyundai">
+        </div>
+
+        <div class="plate">
+            <div class="plate-tr">TR</div>
+            <div class="plate-no">34 SR 2547</div>
+        </div>
+
+        <h1>Birkan Dayıoğlu</h1>
+        <span class="blood">🩸 KAN GRUBU: a rh+</span>
+
+        <a href="tel:05416580455" class="btn btn-call">
+            <i class="fas fa-phone-alt"></i> HEMEN ARA
+        </a>
+
+        <a href="https://instagram.com/birkan_dayioglu" class="btn btn-insta">
+            <i class="fab fa-instagram"></i> INSTAGRAM
+        </a>
+    </div>
+
+</body>
+</html>
