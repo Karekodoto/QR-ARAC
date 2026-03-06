@@ -1,1 +1,183 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>@keyframes move { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} } body { margin:0; min-height:100vh; display:flex; justify-content:center; align-items:center; background:#ffffff;  font-family:sans-serif; overflow:hidden; } .card { width:85%; max-width:340px; padding:30px 20px; text-align:center; border-radius:40px; background:rgba(255,255,255,0.26); backdrop-filter:blur(15px); -webkit-backdrop-filter:blur(15px); border:1px solid rgba(255,255,255,0.2); box-shadow:0 30px 60px rgba(0,0,0,0.5); } .logo img { max-height:91px; max-width: 280px; margin-bottom:5px; } .team-section { margin-bottom:15px; margin-top: 15px; position: relative; } .star-arc-container { display: flex; justify-content: center; align-items: center; position: relative; height: 55px; margin-bottom: -15px; z-index: 2; } .team-logo { height:50px; position:relative; z-index:1; top: 12px; /* Logo ve yay arası boşluk */ } .plate-box { display:inline-flex; border:2.5px solid #000; border-radius:8px; overflow:hidden; background:white; } .plate-no { color:black; font-size:24px; font-weight:900; padding:5px 12px; font-family:'Arial Black'; } .kan-tag { background:#E30A17; color:white; padding:4px 15px; border-radius:50px; font-size:13px; font-weight:bold; margin-top:10px; display:inline-block; } h1 { color:#000000; font-size:1.6rem; margin:20px 0; text-transform:uppercase; font-family:'Montserrat', sans-serif; text-shadow: 0 2px 4px rgba(0,0,0,0.3); } .btn-container { display:flex; flex-direction:column; gap:12px; } .btn { display:flex; align-items:center; justify-content:center; padding:18px; border-radius:20px; text-decoration:none; font-weight:900; color:white; font-size:16px; gap:12px; } .btn-tel { background:#333; } .btn-wp { background:#25D366; } .btn-insta { background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }</style></head><body><div class="card"><div class="logo"><img src="data:image/png;base64,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"></div><div class="team-section"><div class="star-arc-container"><i class="fas fa-star" style="color:#d4af37; font-size:12px; position: absolute; transform: translate(-46.488008791476936px, 9.275529083371657px) rotate(-25deg);"></i><i class="fas fa-star" style="color:#d4af37; font-size:12px; position: absolute; transform: translate(-23.808357533191316px, 2.3466952951265974px) rotate(-12.5deg);"></i><i class="fas fa-star" style="color:#d4af37; font-size:12px; position: absolute; transform: translate(0px, 0px) rotate(0deg);"></i><i class="fas fa-star" style="color:#d4af37; font-size:12px; position: absolute; transform: translate(23.808357533191316px, 2.3466952951265974px) rotate(12.5deg);"></i><i class="fas fa-star" style="color:#d4af37; font-size:12px; position: absolute; transform: translate(46.488008791476936px, 9.275529083371657px) rotate(25deg);"></i></div><img src="https://img.icons8.com/color/144/galatasaray.png" class="team-logo"></div><div><div class="plate-box"><div style="background:#003399; color:white; width:25px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:10px;">TR</div><div class="plate-no">34 NJJ 760</div></div><br><div class="kan-tag">AB Rh+</div></div><h1>METİN GÜLCAN</h1><div class="btn-container"><a href="tel:05396591437" class="btn btn-tel"><i class="fas fa-phone-alt"></i> ARA</a><a href="https://wa.me/905396591437" class="btn btn-wp"><i class="fab fa-whatsapp"></i> WHATSAPP</a><a href="https://instagram.com/metinglcn" class="btn btn-insta"><i class="fab fa-instagram"></i> INSTAGRAM</a></div></div></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            font-family: sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            width: 85%;
+            max-width: 340px;
+            padding: 25px 20px;
+            text-align: center;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.26);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Üstteki FIAT Logosu Sabit */
+        .fiat-header img {
+            max-height: 70px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        .team-section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px 0;
+            height: 110px; /* Alanı sabitledik ki kayma olmasın */
+        }
+
+        /* Yıldız Düzeni: 1 Üstte, 4 Altta Yay Gibi */
+        .star-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .star-top {
+            margin-bottom: 2px;
+        }
+
+        .star-bottom-row {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .fas.fa-star {
+            color: #FFB100;
+            font-size: 13px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Alt sıradaki 4 yıldızı hafif yay (oval) yapmak için */
+        .star-bottom-row i:nth-child(1) { transform: translateY(4px) rotate(-15deg); }
+        .star-bottom-row i:nth-child(2) { transform: translateY(0px); }
+        .star-bottom-row i:nth-child(3) { transform: translateY(0px); }
+        .star-bottom-row i:nth-child(4) { transform: translateY(4px) rotate(15deg); }
+
+        .team-logo {
+            height: 60px;
+            margin-top: -5px; /* Yıldızlara yaklaştırdık */
+            z-index: 1;
+        }
+
+        .plate-box {
+            display: inline-flex;
+            border: 2.5px solid #000;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            margin-top: 10px;
+        }
+
+        .plate-no {
+            color: black;
+            font-size: 24px;
+            font-weight: 900;
+            padding: 5px 12px;
+            font-family: 'Arial Black';
+        }
+
+        .kan-tag {
+            background: #E30A17;
+            color: white;
+            padding: 4px 15px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 900;
+            color: white;
+            font-size: 15px;
+            gap: 10px;
+        }
+
+        .btn-tel { background: #333; }
+        .btn-wp { background: #25D366; }
+        .btn-insta { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="fiat-header">
+            <img src="data:image/png;base64,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">
+        </div>
+
+        <div class="team-section">
+            <div class="star-container">
+                <div class="star-top"><i class="fas fa-star"></i></div>
+                <div class="star-bottom-row">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <img src="https://img.icons8.com/color/144/galatasaray.png" class="team-logo">
+        </div>
+
+        <div>
+            <div class="plate-box">
+                <div style="background:#003399; color:white; width:25px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:10px;">TR</div>
+                <div class="plate-no">34 NJJ 760</div>
+            </div>
+            <br>
+            <div class="kan-tag">AB Rh+</div>
+        </div>
+
+        <h1>METİN GÜLCAN</h1>
+
+        <div class="btn-container">
+            <a href="tel:05396591437" class="btn btn-tel"><i class="fas fa-phone-alt"></i> ARA</a>
+            <a href="https://wa.me/905396591437" class="btn btn-wp"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+            <a href="https://instagram.com/metinglcn" class="btn btn-insta"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+        </div>
+    </div>
+</body>
+</html>
