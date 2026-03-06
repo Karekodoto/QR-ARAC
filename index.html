@@ -3,57 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP QR - AKILLI ARAÇ PANELİ</title>
+    <title>VIP QR - ARAÇ YÖNETİM PANELİ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --gold: #d4af37; --bg: #0a0a0a; --card: #161616; }
+        :root { --gold: #d4af37; --bg: #0a0a0a; --card: #161b22; }
         body { margin: 0; background: var(--bg); color: white; font-family: 'Segoe UI', sans-serif; }
         
         .header { text-align: center; padding: 40px 20px; background: linear-gradient(to bottom, #111, var(--bg)); border-bottom: 2px solid var(--gold); }
         h1 { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; margin: 0; font-size: 1.8rem; }
 
-        /* Arama ve Filtreleme Alanı */
+        /* Arama Kutusu */
         .search-container { max-width: 800px; margin: -30px auto 30px; padding: 0 20px; }
-        .search-box { background: var(--card); border: 1px solid #333; padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .search-box { background: var(--card); border: 1px solid #30363d; padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .search-box i { color: var(--gold); margin-right: 15px; font-size: 1.2rem; }
         .search-box input { background: transparent; border: none; color: white; width: 100%; font-size: 1.1rem; outline: none; }
         
-        .filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .filter-btn { background: #222; border: 1px solid #444; color: #888; padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
-        .filter-btn.active { background: var(--gold); color: black; border-color: var(--gold); font-weight: bold; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
+        
+        /* Plaka Kartı Tasarımı */
+        .card-link { background: var(--card); border: 1px solid #30363d; border-radius: 20px; padding: 20px; text-decoration: none; color: white; display: flex; align-items: center; justify-content: space-between; transition: 0.3s; }
+        .card-link:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 5px 20px rgba(212,175,55,0.2); }
+        
+        .plate-box { display: flex; align-items: center; gap: 10px; }
+        .mini-plate { background: white; color: black; border: 2px solid #333; border-radius: 5px; font-weight: 900; font-family: 'Arial Black'; display: flex; font-size: 1rem; overflow: hidden; }
+        .mini-tr { background: #003399; color: white; padding: 2px 5px; font-size: 10px; display: flex; align-items: center; }
+        .mini-no { padding: 2px 10px; }
+        
+        .info { text-align: right; }
+        .owner { font-size: 0.8rem; color: #8b949e; text-transform: uppercase; }
 
-        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; width: 90%; max-content: 1200px; margin: auto; }
-        .card-link { background: var(--card); border: 1px solid #222; border-radius: 15px; padding: 20px; text-decoration: none; color: white; display: flex; align-items: center; justify-content: space-between; transition: 0.3s; animation: fadeIn 0.5s ease forwards; }
-        .card-link:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 5px 20px rgba(212,175,55,0.1); }
-        
-        .plaka { font-weight: 900; font-family: 'Arial Black'; font-size: 1.3rem; }
-        .label { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; }
-        
-        #loading { text-align: center; color: var(--gold); padding: 50px; font-size: 1.5rem; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        #loading { text-align: center; color: var(--gold); padding: 100px; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1><i class="fas fa-car-side"></i> VIP ARAÇ YÖNETİMİ</h1>
-    <p id="counter" style="color: #666;">Dosyalar taranıyor...</p>
+    <h1><i class="fas fa-crown"></i> VIP PLAKA PANELİ</h1>
+    <p id="counter" style="color: #8b949e; margin-top: 10px;">Veriler yükleniyor...</p>
 </div>
 
 <div class="search-container">
     <div class="search-box">
         <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="Plaka veya isim ara (Örn: 34 SR...)" onkeyup="filterPlates()">
+        <input type="text" id="searchInput" placeholder="Plaka veya İsim ara..." onkeyup="filterList()">
     </div>
 </div>
 
-<div class="filters">
-    <button class="filter-btn active" onclick="setFilter('all', this)">Hepsi</button>
-    <button class="filter-btn" onclick="setFilter('34', this)">İstanbul (34)</button>
-    <button class="filter-btn" onclick="setFilter('vip', this)">VIP Kartlar</button>
-</div>
-
-<div id="loading"><i class="fas fa-spinner fa-spin"></i> Veritabanı Yükleniyor...</div>
+<div id="loading"><i class="fas fa-spinner fa-spin"></i> Dosyalar taranıyor...</div>
 <div class="container" id="file-list"></div>
 
 <script>
@@ -63,63 +59,58 @@
 
     async function getFiles() {
         try {
+            // GitHub API'den dosyaları çekiyoruz
             const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/`);
             const files = await response.json();
             
+            // Sadece .html ile bitenleri ve index/üretim hariç olanları al
             allFiles = files.filter(f => 
                 f.name.toLowerCase().endsWith('.html') && 
-                !['index.html', 'uretim.html', 'readme.html'].includes(f.name.toLowerCase())
+                !['index.html', 'uretim.html', 'readme.html', 'seri_uretim.html'].includes(f.name.toLowerCase())
             );
 
             document.getElementById('loading').style.display = 'none';
             renderFiles(allFiles);
         } catch (e) {
-            document.getElementById('loading').innerText = "Hata oluştu!";
+            document.getElementById('loading').innerHTML = "❌ Veriler çekilemedi. GitHub Token veya internet sorunu olabilir.";
         }
     }
 
     function renderFiles(files) {
         const listDiv = document.getElementById('file-list');
         listDiv.innerHTML = "";
-        document.getElementById('counter').innerText = `${files.length} Araç Kayıtlı`;
+        document.getElementById('counter').innerText = `${files.length} Kayıtlı Araç Bulundu`;
 
         files.forEach(file => {
-            const cleanName = file.name.replace('.html', '').replace(/-/g, ' ');
+            const plakaAd = file.name.replace('.html', '').toUpperCase();
+            // Dosyanın gerçek linkini oluşturuyoruz
+            const link = `https://${username}.github.io/${repo}/${file.name}`;
+            
             const card = `
-                <a href="${file.name}" class="card-link" data-name="${file.name.toLowerCase()}">
-                    <div>
-                        <div class="label">ARAÇ PLAKASI</div>
-                        <div class="plaka">${cleanName}</div>
+                <a href="${link}" class="card-link" data-name="${plakaAd}">
+                    <div class="plate-box">
+                        <div class="mini-plate">
+                            <div class="mini-tr">TR</div>
+                            <div class="mini-no">${plakaAd}</div>
+                        </div>
                     </div>
-                    <i class="fas fa-chevron-right" style="color:var(--gold)"></i>
+                    <div class="info">
+                        <div class="owner">SİSTEM KAYDI</div>
+                        <i class="fas fa-external-link-alt" style="color:var(--gold); font-size: 0.8rem; margin-top:5px;"></i>
+                    </div>
                 </a>`;
             listDiv.innerHTML += card;
         });
     }
 
-    // Arama Fonksiyonu
-    function filterPlates() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
+    function filterList() {
+        const query = document.getElementById('searchInput').value.toUpperCase();
         const cards = document.querySelectorAll('.card-link');
         
         cards.forEach(card => {
             const name = card.getAttribute('data-name');
             card.style.display = name.includes(query) ? "flex" : "none";
         });
-    }
-
-    // Filtreleme Fonksiyonu
-    function setFilter(type, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        if(type === 'all') {
-            renderFiles(allFiles);
-        } else if(type === '34') {
-            renderFiles(allFiles.filter(f => f.name.startsWith('34')));
-        } else if(type === 'vip') {
-            renderFiles(allFiles.filter(f => f.name.toLowerCase().includes('vip')));
-        }
     }
 
     getFiles();
