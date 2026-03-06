@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP QR OTOMATİK PANEL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { margin: 0; background: #0a0a0a; color: white; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .header { text-align: center; padding: 40px 20px; border-bottom: 2px solid #d4af37; width: 100%; background: #111; }
+        h1 { color: #d4af37; text-transform: uppercase; letter-spacing: 4px; margin: 0; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 40px; width: 90%; max-width: 1200px; }
+        .card-link { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; text-decoration: none; color: white; display: flex; align-items: center; justify-content: space-between; transition: 0.3s; }
+        .card-link:hover { border-color: #d4af37; background: #222; transform: scale(1.02); }
+        .plaka { font-weight: 900; font-family: 'Arial Black'; text-transform: uppercase; }
+        #loading { margin-top: 50px; color: #d4af37; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1><i class="fas fa-qrcode"></i> VIP OTOMATİK PANEL</h1>
+    <p id="counter" style="color: #888;">Dosyalar taranıyor...</p>
+</div>
+
+<div id="loading"><i class="fas fa-spinner fa-spin"></i> Dosyalar Getiriliyor...</div>
+<div class="container" id="file-list"></div>
+
+<script>
+    // SENİN GITHUB BİLGİLERİN
+    const username = "Karekodoto"; // GitHub kullanıcı adın
+    const repo = "QR-ARAC"; // Depo adın
+
+    async function getFiles() {
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/`);
+        const files = await response.json();
+        const listDiv = document.getElementById('file-list');
+        const loadingDiv = document.getElementById('loading');
+        
+        let htmlFiles = files.filter(file => file.name.endsWith('.html') && file.name !== 'index.html' && file.name !== 'Uretim.html');
+        
+        loadingDiv.style.display = 'none';
+        document.getElementById('counter').innerText = `${htmlFiles.length} Adet Kayıtlı Araç Bulundu`;
+
+        htmlFiles.forEach(file => {
+            const displayName = file.name.replace('.html', '').replace(/-/g, ' ');
+            const card = `
+                <a href="${file.name}" class="card-link">
+                    <div class="info">
+                        <div style="font-size: 0.7rem; color: #d4af37;">PLAKA / DOSYA</div>
+                        <div class="plaka">${displayName}</div>
+                    </div>
+                    <i class="fas fa-external-link-alt" style="opacity: 0.5;"></i>
+                </a>
+            `;
+            listDiv.innerHTML += card;
+        });
+    }
+
+    getFiles();
+</script>
+</body>
+</html>
